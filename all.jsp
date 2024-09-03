@@ -103,13 +103,9 @@
 											<td class="email"><%=email %></td>
 											<td><%=address %></td>
 											<td>												
-												<!-- <input type="text" value="<%=m_num %>" name="modify" class="modify"> -->
-												<!-- <button class="button">수정</button> -->
-												<form action="#">
-													<input type="text" value="<%=m_num %>" name="m_num" class="m_num">
-													<input type="text" value="<%=phone %>" name="phone" class="ph">
-													<input type="text" value="<%=address %>" name="address" class="address">
-													<input type="button" value="수정" class="modify" onclick="request_doPost('<%= m_num %>')">
+												<form method="post" action="all_modify.jsp">
+													<input type="hidden" value="<%=m_num %>" name="m_num" class="m_num">
+													<input type="submit" value="수정" class="modify">
 												</form>
 											</td>
 											<td>
@@ -140,24 +136,15 @@
 				</div>
 				
 				
-				
-			<h2>서버 리스폰스</h2>
-			<div id="severResponse">
-			
-			
-			
-			</div>	
+
 				
 			</div><!-- 컨텐츠 끝 -->
 			
-			
-			
+
 			
 			<script>
 				
-
-
-				
+				<%--
 				//테이블의 class=".tr_length"인 행의 갯수.
 				let tr=document.querySelectorAll(".tr_length");
 				let tr_length=tr.length;
@@ -183,74 +170,13 @@
 						
 						//부모노드에 자식노드 붙이기
 						phone.append(input);
-						
-						
-						
-						
-						
+
 					})
 					
-					
-
-				}
-				
-				
-				///////////////////ajax		
-				var XHR;
-				var type="";
-				function createXMLHttpRequest() {
-					if(window.ActiveXObject) {
-						XHR=new ActiveXObject("Microsoft.XMLHTTP");
-					}else if(window.XMLHttpRequest) {
-						XHR=new XMLHttpRequest();
-					}
-				}
-				
-				<%--
-				function createString(){
-					//i번째 m_num을 받아오기
-					var m_num=document.getElementsByClassName("m_num")[i].value;
-					console.log("선택한 m_num은????? "+m_num);
-					var phone=document.getElementsByClassName("phone")[i].value;
-					console.log("선택한 phone은???? "+phone);
-					var dataString="phone?????"+phone+"선택한 m_num은????? "+m_num;
-					return dataString
 				}
 				--%>
-
-				function request_doPost(m_num){
-					createXMLHttpRequest();
-					var url="all.do";
-					//dataString=createString();
-					
-					var dataString="m_num= "+encodeURIComponent(m_num);
-					console.log(dataString);
-					
-					XHR.onreadystatechange=handleStateChange;
-					XHR.open("POST", url, true);
-					XHR.setRequestHeader("content-Type", "application/x-www-form-urlencoded");
-					XHR.send(dataString);
-				}
-
-				function handleStateChange(){
-					if(XHR.readyState==4){
-						if(XHR.status==200){
-							parseResult();
-						}
-					}
-				}	
-						
-
-				function parseResult(){
-					var div=document.getElementById("severResponse");
-					if(div.hasChildNodes()){
-						div.removeChild(div.childNodes[0]);
-					}else{
-						var text=document.createTextNode(XHR.responseText);
-						div.appendChild(text);
-						
-					}		
-				}
+				
+				
 				
 				
 				
