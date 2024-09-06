@@ -101,7 +101,7 @@
 							<span>이&nbsp;&nbsp;&nbsp;&nbsp;름</span><input type="text" value="${mDTO.name }" readonly><br>
 							<span>사&nbsp;&nbsp;&nbsp;&nbsp;번</span><input type="text" value="${m_num }" readonly><br>
 							<span>비밀번호</span><input type="text" name="pw"><br>
-						    <span>연&nbsp;락&nbsp;처</span><input type="text" name="phone" value="${mDTO.phone }"><br>
+						   	<span>연&nbsp;락&nbsp;처</span><input type="text" name="phone" value="${mDTO.phone }"><br>
 							<span>이&nbsp;메&nbsp;일</span><input type="email" name="email" value="${mDTO.email }"><br>
 							<span>주&nbsp;&nbsp;&nbsp;&nbsp;소</span><input type="text" name="address" value="${mDTO.address }"><br>
 						</div>
